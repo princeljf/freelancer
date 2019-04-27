@@ -1,0 +1,19 @@
+{
+  "name": "freelancer",
+  "version": "1.0.0",
+  "description": "freelancer_lhh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/princeljf/freelancer.git"
+  },
+  "author": "lhh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/princeljf/freelancer/issues"
+  },
+  "homepage": "https://github.com/princeljf/freelancer#readme"
+}
