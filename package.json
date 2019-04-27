@@ -4,6 +4,7 @@
   "description": "freelancer_lhh",
   "main": "index.js",
   "scripts": {
+    "start": "cd quant && DEBUG=quant:* npm start",
     "quant": "cd quant && DEBUG=quant:* npm start"
   },
   "repository": {
