@@ -19,5 +19,10 @@
   "homepage": "https://github.com/princeljf/freelancer#readme",
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "lhh": {
+    "node": "v10.15.1",
+    "npm": "3.10.10",
+    "vue": "2.9.6"
   }
 }
