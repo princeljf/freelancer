@@ -4,7 +4,7 @@
   "description": "freelancer_lhh",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "quant": "cd quant && DEBUG=quant:* npm start"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/princeljf/freelancer/issues"
   },
-  "homepage": "https://github.com/princeljf/freelancer#readme"
+  "homepage": "https://github.com/princeljf/freelancer#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
