@@ -4,6 +4,9 @@
   "description": "freelancer_lhh",
   "main": "index.js",
   "scripts": {
+    "mongod": "mongod --config /usr/local/etc/mongod.conf",
+    "redis": "redis-server",
+    "pys": "cd pyspider/tusharePro && pyspider --config config.json",
     "start": "cd quant && DEBUG=quant:* npm start",
     "quant": "cd quant && DEBUG=quant:* npm start"
   },
@@ -18,7 +21,8 @@
   },
   "homepage": "https://github.com/princeljf/freelancer#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongodb": "^3.2.3"
   },
   "lhh": {
     "node": "v10.15.1",

@@ -1,6 +1,10 @@
 #自定义
 pyspider/**/data/
 .DS_Store
+#redis
+dump.rdb
+
+
 # Logs
 logs
 *.log

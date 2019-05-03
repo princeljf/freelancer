@@ -4,6 +4,7 @@
 # Project: tusharePro
 
 from pyspider.libs.base_handler import *
+import pymongo
 
 ###获取两个字符串中间的值
 def getStrBetween(str="",startStr="",endStr=""):
@@ -36,20 +37,23 @@ def getTable2tushare(pyQueryTable, fields):
 
 
 class Handler(BaseHandler):
+    def __init__(self):
+        self.items = False
     crawl_config = {
     }
-
+    
     @every(minutes=24 * 60)
     def on_start(self):
         self.crawl('https://tushare.pro/document/2', callback=self.index_page)
 
     @config(age=10 * 24 * 60 * 60)
     def index_page(self, response):
-        for each in response.doc('a[href^="https://tushare.pro/document/2"]').items():
+        self.items = response.doc('a[href^="https://tushare.pro/document/2"]').items()
+        for each in self.items:
             self.crawl(each.attr.href, callback=self.detail_page)
     
-    
     @config(priority=2)
+    
     def detail_page(self, response):
         content = response.doc('.document .content')
         inputTable = content('table').eq(0)
@@ -76,7 +80,26 @@ class Handler(BaseHandler):
                 "output": outputArr
             }
         }
-
+    
         print('------')
         return tsApi
+
+    def on_result(self, result):
+        #print(result)
+        if not result:
+            return
+        apiKey = {}
+        for key in result:
+            apiKey = result[key]
+        #print(apiKey)
+        if len(apiKey['input'])==0:
+            return
+
+        client = pymongo.MongoClient(host='127.0.0.1', port=27017)
+        db = client['pyspider_resultdb'] #config.json数据库配置名
+        coll = db['tusharePro'] #表名
+
+        data = apiKey
+        data_id = coll.insert(data)
+        print (data_id)
     
